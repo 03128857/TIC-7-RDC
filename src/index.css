@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom theme variables for Dark Beige Mode */
+.theme-dark-beige {
+  /* Let's override the slate color map with beautiful, rich warm dark-beige colors */
+  --color-slate-950: #1b1816; /* Deep dark warm chocolate-espresso */
+  --color-slate-900: #292420; /* Deep cocoa cards */
+  --color-slate-850: #3a322c; /* Inner panels / active selection */
+  --color-slate-800: #493f38; /* Warm sandy borders */
+  --color-slate-700: #5c4f46; /* Mid tone border / secondary buttons */
+  --color-slate-600: #716256;
+  --color-slate-500: #8c7b6f; /* Muted texts with high accessibility */
+  --color-slate-400: #ae9c8f; /* Sand-grey secondary text, highly legible */
+  --color-slate-300: #cfbeb2; /* Soft warm beige */
+  --color-slate-200: #ebdcd0; /* Main body text, clean cream */
+  --color-slate-100: #fbf6f2; /* Heading text, bright warm ivory */
+  --color-slate-50: #fdfaf7;
+
+  /* Let's also adjust indigo to a warm rich terracotta/coral-beige */
+  --color-indigo-950: #2c1a11;
+  --color-indigo-900: #402619;
+  --color-indigo-800: #583321;
+  --color-indigo-700: #71412b;
+  --color-indigo-600: #af6441; /* Primary CTA */
+  --color-indigo-500: #c6714a;
+  --color-indigo-400: #dc926e;
+  --color-indigo-300: #eba582;
+  --color-indigo-200: #f5c8b5;
+  --color-indigo-100: #fbe6dd;
+  --color-indigo-50: #fbf1ed;
+
+  /* Adjust auxiliary colors for high-contrast visibility */
+  --color-sky-400: #dc9c54;
+  --color-sky-500: #bf813b;
+  --color-sky-600: #a3692a;
+}
+
+/* Custom theme variables for Light Transparent Mode */
+.theme-light-transparent {
+  /* Set a soft warm luminous cream background gradient with golden sand tones */
+  background: linear-gradient(135deg, #fbfaf8 0%, #f6f0e6 50%, #ede5d7 100%) !important;
+
+  /* Natural warm slate color mapping (Light at 50, Deep espresso at 950) */
+  --color-slate-50: #faf8f5;     /* Warm ivory cream background element */
+  --color-slate-100: #f3ebe3;    /* Very light cream-gray border/accent */
+  --color-slate-200: #e6dcd0;    /* Sandy cream border */
+  --color-slate-300: #cfbeb2;    /* Medium sand border */
+  --color-slate-400: #8c7b6f;    /* Highly legible secondary sand-gray text */
+  --color-slate-500: #6f5d50;    /* Muted charcoal text, very accessible */
+  --color-slate-600: #54463c;    /* Rich readable dark brown-gray */
+  --color-slate-700: #42362e;    /* Deep cocoa-espresso text */
+  --color-slate-800: #2d231b;    /* High contrast dark espresso */
+  --color-slate-900: #1c1613;    /* Core body titles and bold headers */
+  --color-slate-950: #120e0c;    /* Absolute highest contrast dark text */
+
+  /* High legibility color scale for primary accents (terracotta / rich indigo) */
+  --color-indigo-50: rgba(79, 70, 229, 0.05);
+  --color-indigo-100: rgba(79, 70, 229, 0.1);
+  --color-indigo-200: #c7d2fe;
+  --color-indigo-300: #a5b4fc;
+  --color-indigo-400: #4f46e5;   /* Crisp, high-contrast Indigo */
+  --color-indigo-500: #3b31c1;
+  --color-indigo-600: #3125a4;
+  --color-indigo-700: #1d1484;
+  --color-indigo-800: #120b60;
+  --color-indigo-900: #0a0440;
+  --color-indigo-950: #030026;
+
+  /* Redefine auxiliary accent colors for maximum readability on light backgrounds */
+  --color-emerald-400: #0f766e;  /* Deep high-contrast teal */
+  --color-emerald-500: #0d9488;
+  --color-emerald-600: #0d9488;
+  --color-emerald-700: #115e59;
+
+  --color-sky-400: #0369a1;      /* Deep sky blue */
+  --color-sky-500: #0284c7;
+  --color-sky-600: #0369a1;
+
+  --color-amber-400: #b45309;    /* Rich caramel amber */
+  --color-amber-500: #d97706;
+  --color-amber-600: #b45309;
+
+  --color-cyan-400: #0369a1;      /* Readable deep cyan */
+  --color-cyan-500: #0284c7;
+  --color-cyan-600: #0369a1;
+
+  --color-yellow-400: #a16207;    /* Dark golden yellow */
+  --color-yellow-500: #d97706;
+  --color-yellow-600: #a16207;
+
+  --color-rose-400: #be123c;      /* High contrast deep red */
+  --color-rose-500: #e11d48;
+  --color-rose-600: #be123c;
+}
+
+/* Smooth transition for theme changes */
+.min-h-screen,
+aside,
+header,
+main,
+div,
+section,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+select,
+textarea {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.3s ease;
+}
+
+/* Glassmorphic premium cards inside Light Transparent Mode */
+.theme-light-transparent .bg-white {
+  background-color: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-color: rgba(45, 35, 27, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(45, 35, 27, 0.03) !important;
+}
+
+/* Semi-transparent auxiliary panels */
+.theme-light-transparent .bg-slate-100 {
+  background-color: rgba(243, 235, 227, 0.65) !important;
+  backdrop-filter: blur(8px) !important;
+  border-color: rgba(45, 35, 27, 0.08) !important;
+}
+
+/* Light mode form elements with clean solid backgrounds to ensure crisp readability while typing */
+.theme-light-transparent input,
+.theme-light-transparent select,
+.theme-light-transparent textarea {
+  background-color: #ffffff !important;
+  border-color: #e6dcd0 !important;
+  color: #120e0c !important;
+}
+
+.theme-light-transparent input::placeholder,
+.theme-light-transparent textarea::placeholder {
+  color: #8c7b6f !important;
+}
+
+/* Guarantee dark text is robustly readable over transparent white glass in light mode */
+.theme-light-transparent p, 
+.theme-light-transparent li, 
+.theme-light-transparent h3 {
+  letter-spacing: -0.011em;
+}
+
+/* Hover & Active adjustments for list items and menu buttons */
+.theme-light-transparent .hover\:bg-slate-100:hover {
+  background-color: rgba(18, 15, 13, 0.05) !important;
+}
+
+.theme-light-transparent .hover\:bg-slate-800\/40:hover {
+  background-color: rgba(18, 15, 13, 0.06) !important;
+}
+

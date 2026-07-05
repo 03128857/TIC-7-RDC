@@ -1,0 +1,8 @@
+{
+  "name": "TIC 7 RDC",
+  "description": "An interactive smart learning portal for 7th-grade IT (RDC MTIC curriculum) integrated with a high-fidelity creative banner ad generation studio using Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
